@@ -1,0 +1,32 @@
+.CtaBlock {
+    @apply bg-mainLight min-w-full;
+
+    & .CtaBlockInner {
+        @apply grid grid-cols-1 justify-between py-14 sm:px-14 px-4 xl:grid-cols-CtaBox gap-0 2xl:gap-32 xl:gap-10 items-center 2xl:px-0;
+
+        & .TitleContent {
+            @apply grid justify-center
+        }
+
+        & .CtaBlockInputs {
+            @apply grid md:grid-cols-2 gap-5 lg:grid-cols-footer grid-cols-1;
+
+            & div {
+                @apply flex flex-col;
+
+                & span {
+                    @apply xl:mb-0 font-bold;
+                }
+                & input {
+                    @apply focus:text-darkGreen focus:border-2 focus:border-darkGreen placeholder:text-gray-500 p-4 min-w-[230px] outline-none min-h-[60px] bg-transparent font-bold text-gray-600 border-2 border-gray-500;
+                }
+                & .InvisibleText {
+                    @apply text-mainLight h-[24px];
+                }
+                & .ErrorText {
+                    @apply text-red-900 font-semibold text-sm
+                }
+            }
+        }
+    }
+}

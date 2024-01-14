@@ -1,0 +1,19 @@
+.SocialsContainer {
+    @apply w-20 h-full flex items-center justify-center;
+
+    & .SocialsInner {
+        @apply flex flex-col gap-20;
+    
+        .SocialBox {
+            @apply flex content-center;
+
+            &:hover {
+                svg path {
+                    @apply transition-all text-mainLight;
+                }
+            }
+        }
+    }
+}
+
+

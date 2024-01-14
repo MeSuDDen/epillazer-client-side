@@ -1,0 +1,27 @@
+@font-face {
+  font-family: 'Ubuntu-Regular';
+  src: local('Ubuntu-Regular'), url('./assets/fonts/Ubuntu-Regular.woff2') format('woff2');
+  /* Дополнительные форматы шрифта для поддержки разных браузеров */
+}
+
+@font-face {
+  font-family: 'Ubuntu-Bold';
+  src: local('Ubuntu-Bold'), url('./assets/fonts/Ubuntu-Bold.woff2') format('woff2');
+  /* Дополнительные форматы шрифта для поддержки разных браузеров */
+}
+
+@font-face {
+  font-family: 'Ubuntu-Medium';
+  src: local('Ubuntu-Medium'), url('./assets/fonts/Ubuntu-Medium.woff2') format('woff2');
+  /* Дополнительные форматы шрифта для поддержки разных браузеров */
+}
+
+body {
+  /* font-family: 'Ubuntu', sans-serif; */
+  font-family: 'GFS Didot', serif;
+  font-family: 'Jura', sans-serif;
+}
+
+.img {
+  float: right;
+}

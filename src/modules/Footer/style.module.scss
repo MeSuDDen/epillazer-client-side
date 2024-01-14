@@ -1,0 +1,54 @@
+footer {
+    @apply pt-14 sm:px-14 px-4
+}
+.FooterContainer {
+    padding-bottom: 40px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #143D3D;
+    display: grid;
+    align-items: flex-start;
+    grid-template-columns:1fr 1fr;
+    justify-content: space-between;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+.ContactsBlock {
+    @apply flex h-full;
+}
+.dg-control-round {
+    @apply bg-darkGreen
+}
+
+.FooterBot {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+@media (max-width: 1536px) {
+    .FooterContainer {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media (max-width: 1400px) {
+    .FooterContainer {
+        grid-template-columns: 60% 40%;
+    }
+}
+@media (max-width: 1023px) {
+    .FooterContainer {
+        display: block;
+    }
+}
+@media (max-width: 768px) {
+    .FooterContainer {
+        display: block;
+        & .MapBlock {
+            margin-top: 30px;
+        }
+        & .ContactsBlock {
+            margin-top: 30px;
+        }
+    }
+}

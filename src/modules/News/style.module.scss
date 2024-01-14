@@ -1,0 +1,13 @@
+.NewsContainer {
+	@apply p-14;
+}
+.NewsInner {
+	@apply flex relative;
+
+	& .swiper {
+		@apply px-14;
+	}
+}
+.NewsButton {
+	@apply pt-10 flex justify-center sm:block;
+}

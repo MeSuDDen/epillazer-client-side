@@ -1,0 +1,6 @@
+.AdvantagesBlock {
+	@apply bg-darkGreen text-white py-14 p-14 w-full;
+}
+.AdvantagesInner {
+	@apply flex justify-center items-center gap-10 flex-wrap xl:gap-10 sm:justify-between;
+}

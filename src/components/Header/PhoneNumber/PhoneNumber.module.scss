@@ -1,0 +1,17 @@
+@import '../../../assets/css/variables.module.scss';
+
+.NavPhone {
+    padding-left: 75px;
+
+    display: flex;
+    align-items: center;
+    & svg {
+        padding-right: 5px;
+    }
+    &:hover {
+        color: $black;
+        & svg path {
+        color: $black;
+        }
+    }
+}

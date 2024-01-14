@@ -1,0 +1,9 @@
+.BlockTitle {
+	@apply flex flex-col items-center justify-center;
+	.Title {
+		@apply font-Inter text-2xl text-darkGreen font-bold pb-5 sm:text-4xl text-center;
+	}
+	.LineTitle {
+		@apply w-20 bg-darkGreen h-1 mb-10;
+	}
+}

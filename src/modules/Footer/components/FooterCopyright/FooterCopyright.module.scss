@@ -1,0 +1,7 @@
+.FooterCopyright {
+    @apply flex flex-col items-end text-sm;
+
+    & a {
+        @apply underline;
+    }
+}

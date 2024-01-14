@@ -1,0 +1,39 @@
+@import '../../assets/css/variables.module.scss';
+
+.HeaderInfo {
+    height: 40px;
+    background: $mainColor;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.HeaderInfoInner {
+    display: flex;
+    justify-content: space-between;
+    width: 1260px;
+}
+.HeaderInfoBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: $white;
+    font-weight: 500;
+    font-size: 13px;
+
+    &:hover svg path {
+        transition: all .2s linear;
+        color: $darkGreen;
+    }
+    &:hover {
+        transition: all .2s linear;
+        color: $darkGreen;
+    }
+    & svg {
+        padding-right: 5px;
+    }
+}
+.HeaderIcon {
+    padding-right: 20px;
+}

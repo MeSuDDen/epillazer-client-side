@@ -1,0 +1,18 @@
+.AdvantagesItem {
+	@apply flex w-max min-w-[260px] max-w-[260px];
+}
+
+.AdvantagesLine {
+	@apply bg-white h-20 w-[2px];
+}
+
+.AdvantageContent {
+	@apply pl-5;
+	& h2 {
+		@apply font-bold;
+	}
+	& p {
+		@apply text-sm mt-[15px];
+	}
+	@apply font-light font-Inter;
+}

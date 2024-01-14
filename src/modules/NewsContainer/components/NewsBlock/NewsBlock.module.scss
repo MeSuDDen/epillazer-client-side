@@ -1,0 +1,24 @@
+.Article {
+	@apply py-5 border-b-2 border-darkGreen last:border-0;
+	.ArticleHeader {
+		@apply flex justify-between py-5;
+		& .ArticleTitle {
+			@apply font-bold font-Inter text-xl hover:text-darkGreen transition-all hover:underline;
+		}
+		& .ArticleDate {
+			@apply font-Inter text-base flex items-center gap-4;
+		}
+	}
+	.ArticleMain {
+		@apply flex gap-5 font-Inter font-light;
+		& img {
+			@apply max-w-[300px];
+		}
+		& .ArticleMainInner {
+			@apply flex flex-col justify-between
+		}
+		& .ArticleButton button {
+			@apply flex items-center gap-2
+		}
+	}
+}

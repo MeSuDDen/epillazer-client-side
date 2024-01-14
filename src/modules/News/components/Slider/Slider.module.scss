@@ -1,0 +1,17 @@
+.ButtonPrev {
+    @apply flex justify-center items-center w-10 h-10 shadow-md absolute left-[-50px] top-2/4 bg-darkGreen z-10 hover:bg-mainLight transition-all cursor-pointer;
+}
+.ButtonNext {
+    @apply flex justify-center items-center w-10 h-10 shadow-md absolute right-[-50px] top-2/4 bg-darkGreen z-10  hover:bg-mainLight transition-all cursor-pointer;
+}
+
+@media (max-width: 1660px) {
+    .ButtonPrev {
+        left: -20px;
+        top: 150px;
+    }
+    .ButtonNext {
+        right: -20px;
+        top: 150px;
+    }
+}

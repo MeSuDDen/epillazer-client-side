@@ -1,0 +1,43 @@
+.NewsContainer {
+    @apply relative max-w-xs min-w-fit sm:block flex flex-col items-center justify-center;
+
+    &:hover .PostHover {
+        @apply z-10 transition-all
+    }
+
+    & img {
+        @apply min-w-full
+    }
+    &:hover img {
+        transition: all 0.3s ease-in-out;
+        transform: scale(1.1);
+        filter: brightness(50%);
+    }
+
+    & h2 {
+        @apply font-bold font-Inter py-[15px]
+    }
+}
+.Image {
+    @apply w-full overflow-hidden relative
+}
+
+.Date {
+    @apply absolute left-0 top-5 px-3 py-2 bg-darkGreen text-white font-bold;
+    text-wrap: nowrap;
+}
+.ReadMore {
+    @apply hover:underline flex gap-1 items-center text-darkGreen font-bold cursor-pointer mt-[15px]
+}
+.TextNews {
+    @apply pr-3
+}
+.PostHover {
+    @apply absolute left-0 right-0 top-0 bottom-0 flex justify-center items-center -z-10;
+    & a{
+        @apply border-2 border-white bg-transparent w-14 h-14 flex justify-center items-center hover:bg-darkGreen transition-all ;
+    }
+}
+.NewsTitle {
+    @apply hover:text-darkGreen transition-all
+}

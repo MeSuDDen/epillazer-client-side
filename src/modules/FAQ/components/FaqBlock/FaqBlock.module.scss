@@ -1,0 +1,43 @@
+.FaqBlock {
+	-moz-box-shadow: 3px 3px 13px 2px rgba(20, 61, 61, 0.2);
+	box-shadow: 3px 3px 13px 2px rgba(20, 61, 61, 0.2);
+}
+.FaqInner {
+	@apply flex justify-between items-center px-5 py-[15px] lg:gap-0 gap-5;
+
+	& .FaqTitle {
+		@apply font-Inter font-bold text-base;
+	}
+	& .FaqIcon {
+		@apply min-w-[28px] min-h-[28px] flex justify-center items-center border-2 border-darkGreen rounded-md hover:bg-darkGreen transition-all cursor-pointer;
+		&:hover svg path {
+			transition-property: all;
+			transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+			transition-duration: 150ms;
+			fill: white;
+		}
+	}
+}
+
+.FaqDesc {
+	@apply px-5 font-Inter font-light text-left;
+}
+
+.Icon {
+	transition: transform 0.3s ease-in-out; /* Adjust the duration and timing function as needed */
+}
+
+.activeIcon {
+	transform: rotate(180deg);
+}
+
+.FaqDesc {
+	max-height: 0;
+	overflow: hidden;
+	transition: all 0.2s ease-in-out; /* Adjust the duration and timing function as needed */
+}
+
+.FaqBlock.active .FaqDesc {
+	max-height: 500px;
+	padding: 0 20px 20px 20px; /* Set a maximum height for the answer */
+}

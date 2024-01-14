@@ -1,0 +1,68 @@
+.ContactsContainer {
+    @apply flex flex-col h-full gap-[50px] items-center justify-center lg:justify-start lg:pb-0 pb-5 lg:items-start;
+
+    h2 {
+        @apply  text-darkGreen font-Inter font-extrabold lg:text-4xl text-3xl;
+    }
+
+    .ContactsInner {
+        @apply flex flex-row w-auto lg:w-full;
+
+        a svg {
+            @apply mr-2
+        }
+    }
+}
+
+.AddressBlock {
+    @apply max-w-[240px];
+
+    .AddressBlock__title {
+        text-wrap: nowrap;
+        @apply font-bold font-Inter text-base mb-2 ;
+    
+        & span {
+            text-wrap: nowrap;
+            @apply ml-1;
+        }
+    }
+    & a {
+        @apply mt-10;
+
+        &:hover {
+            @apply transition-all;
+            & svg path {
+                @apply transition-all;
+                fill: #c29870;
+            }
+            & span {
+                @apply text-black underline transition-all;
+            }
+        }
+
+        & span {
+            @apply font-Inter font-light text-[#999]
+        }
+    } 
+}
+.Line {
+    @apply bg-[#143D3D] w-[50px] h-[2px]
+}
+.PhoneBlock {
+  @apply mt-5;  
+}
+.right_block {
+    @apply pl-10 sm:pl-28
+}
+.BtnLine {
+    @apply flex gap-[25px] items-center
+}
+
+@media (max-width: 420px) {
+    .ContactsInner {
+        @apply block;
+    }
+    .right_block {
+        @apply p-0
+    }
+}

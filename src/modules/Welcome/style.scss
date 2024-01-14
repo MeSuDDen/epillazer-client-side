@@ -1,0 +1,36 @@
+.Main {
+	@apply p-14 pt-0 overflow-hidden;
+}
+.MainInner {
+	@apply relative flex justify-start gap-10;
+	& .MainSocials {
+		@apply w-20 sm:block hidden;
+	}
+	& .MainContent {
+		@apply pt-60 text-darkGray sm:block flex flex-col justify-center;
+		& .TopTitle {
+			@apply font-medium xl:text-4xl text-2xl;
+		}
+		& .Title {
+			@apply uppercase font-Didot xl:text-7xl mt-20 text-5xl sm:text-8xl;
+		}
+		& .SubTitle {
+			@apply block text-xl w-[420px] mt-20;
+		}
+		& button {
+			@apply mt-14;
+		}
+		& .Address {
+			@apply flex items-center mt-10;
+			& svg {
+				@apply pr-2;
+			}
+		}
+	}
+	& .MainImg {
+		@apply absolute top-0 right-0 lg:block hidden;
+		& img {
+			@apply w-[500px] xl:h-auto xl:w-[730px];
+		}
+	}
+}

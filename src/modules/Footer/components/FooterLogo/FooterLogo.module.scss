@@ -1,0 +1,10 @@
+.FooterLogo {
+    @apply flex items-center;
+    & img {
+        @apply rounded-full mr-[15px];
+    }
+
+    & .FooterLogoText {
+        @apply pl-[15px] border-l-2 border-[#143d3d] font-normal text-sm max-[510px]:hidden
+    }
+}

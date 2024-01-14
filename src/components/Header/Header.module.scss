@@ -1,0 +1,20 @@
+@import '../../assets/css/variables.module.scss';
+.Header {
+	position: absolute;
+	z-index: 10;
+
+	margin: 20px 0 0 0;
+
+	height: 80px;
+	background: transparent;
+
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.HeaderInner {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}

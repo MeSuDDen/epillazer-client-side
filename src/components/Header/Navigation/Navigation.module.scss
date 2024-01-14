@@ -1,0 +1,37 @@
+@import '../../../assets/css/variables.module.scss';
+
+.Navigation {
+	padding-left: 50px;
+	height: 80px;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 51px;
+
+	a {
+		color: $darkGreen;
+		font-weight: bold;
+		position: relative;
+
+		&:hover {
+			color: $black;
+			&::after {
+				content: '';
+				position: absolute;
+				background: $mainColor;
+				height: 2px;
+				bottom: -5px;
+				left: 0;
+				width: 100%;
+			}
+		}
+	}
+}
+
+// @media (max-width: 1599px) {
+//     .Navigation {
+//         gap: 25px;
+//         padding-left: 30px;
+//     }
+// }
