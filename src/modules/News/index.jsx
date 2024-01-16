@@ -18,7 +18,7 @@ export default function News() {
 	return (
 		<div className={style.NewsContainer}>
 			<Container>
-				<Title>Новости</Title>
+				<Title>Последнии новости</Title>
 
 				<div className={style.NewsInner}>
 					<Slider />

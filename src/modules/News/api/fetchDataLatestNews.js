@@ -1,11 +1,13 @@
 export const fetchDataLatestNews = async (setData, setIsLoading) => {
 	try {
-		const response = await fetch('http://localhost:3030/api/news', {
-			method: 'GET',
-		})
+		const response = await fetch(
+			'http://localhost:3030/api/latest-news?limit=10&sort=-date_published',
+			{
+				method: 'GET',
+			}
+		)
 
 		if (!response.ok) {
-			// Обработка ошибок, если статус ответа не в пределах 200-299
 			if (response.status === 400) {
 				throw new Error('Неверный запрос. Пожалуйста, проверьте данные.')
 			} else if (response.status === 500) {

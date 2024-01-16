@@ -1,12 +1,32 @@
-// YandexMap.js
+import {
+	GeolocationControl,
+	Map,
+	Placemark,
+	YMaps,
+	ZoomControl,
+} from '@pbe/react-yandex-maps'
 import React from 'react'
-
-import { Map, Placemark, YMaps } from '@pbe/react-yandex-maps'
 
 const YandexMap = () => {
 	const mapState = {
-		center: [48.499092, 135.102558], // Initial map center
-		zoom: 16, // Initial zoom level
+		center: [48.499092, 135.102558],
+		zoom: 17,
+	}
+
+	const placemarkGeometry = [48.499061, 135.10248]
+
+	const placemarkProperties = {
+		iconCaption: 'Epillazer',
+		hintContent: 'Нажмите для подробностей',
+		balloonContentHeader: 'Epillazer',
+		balloonContentBody: `
+        ул. Карла-Маркса 122б, 3 этаж, к. 410
+        Студия лазерной эпиляции
+        Пн-Пт с 10:00 до 19:00,
+        Сб с 10:00 до 18:00, Вс выходной
+        +7 (4212) 677-000, +7 (909) 824-7000
+        dveriland@list.ru
+      `,
 	}
 
 	return (
@@ -25,10 +45,16 @@ const YandexMap = () => {
 						width='100%'
 						height='100%'
 						options={{
-							suppressMapOpenBlock: true, // Disable the "Open the map in a separate window" link
+							suppressMapOpenBlock: true,
 						}}
 					>
-						<Placemark geometry={[48.49, 135.1]} />
+						<Placemark
+							geometry={placemarkGeometry}
+							properties={placemarkProperties}
+						/>
+
+						<ZoomControl options={{ float: 'right' }} />
+						<GeolocationControl options={{ float: 'right' }} />
 					</Map>
 				</YMaps>
 			</div>

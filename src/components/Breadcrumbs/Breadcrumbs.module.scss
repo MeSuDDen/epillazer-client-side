@@ -3,7 +3,7 @@
 .Breadcrumbs {
 	background: $mainColor;
 
-	padding-top: 100px;
+	padding-top: 140px;
 
 	// display: flex;
 	// justify-content: center;
@@ -14,22 +14,23 @@
 		margin-bottom: 10px;
 	}
 	& h1 {
-		color: $darkGreen;
-
-		font-weight: 700;
-		font-size: 40px;
-
-		padding-top: 10px;
+		@apply text-white text-lg font-bold font-Inter;
 	}
 }
+.BreadcrumbsInner {
+	@apply flex justify-between items-center;
+}
+.BreadcrumbsBox {
+	@apply bg-darkGreen h-20 flex items-center justify-between;
+}
 .BreadcrumbsText {
-	padding-bottom: 15px;
-
-	color: $white;
-	font-weight: 700;
-	font-size: 16px;
+	@apply text-white font-Inter text-base flex items-center;
 
 	& a:hover {
-		color: $darkGreen;
+		@apply text-mainLight transition-all;
 	}
+}
+
+.Span {
+	@apply px-2;
 }

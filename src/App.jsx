@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 import './App.css'
 import './assets/css/scrollbar.module.scss'
@@ -60,12 +60,6 @@ function MainComponent() {
 		setModelOpen(false)
 	}
 
-	useEffect(() => {
-		fetch('http://localhost:3030/api/news')
-			.then(response => response.json())
-			.then(data => setData(data))
-			.catch(error => console.error('Ошибка при получении данных:', error))
-	}, [])
 	const location = useLocation()
 
 	return (
@@ -75,7 +69,7 @@ function MainComponent() {
 			{shouldRenderHeader(location) && (
 				<>
 					<Header />
-					<Breadcrumbs />
+					<Breadcrumbs data={data} />
 				</>
 			)}
 			<Routes>
@@ -85,7 +79,7 @@ function MainComponent() {
 				<Route path='/price' element={<Price />} />
 				<Route path='/contacts' element={<Contacts />} />
 				<Route path='/news' element={<News />} />
-				<Route path='/news/:slug' element={<NewsPage data={data} />} />
+				<Route path='/news/:slug' element={<NewsPage />} />
 				<Route path='/sitemap' element={<Sitemap />} />
 				<Route path='/privacy-policy' element={<PrivacyPolicy />} />
 				<Route path='*' element={<NotFound />} />

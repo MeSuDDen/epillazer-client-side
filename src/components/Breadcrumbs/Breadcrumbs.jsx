@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { FaHome } from 'react-icons/fa'
 import { Link, useLocation } from 'react-router-dom'
+import Container from '../../components/layout/Container/Container'
 import classes from './Breadcrumbs.module.scss'
 
 const Breadcrumbs = () => {
@@ -7,12 +9,12 @@ const Breadcrumbs = () => {
 	const pathnames = location.pathname.split('/').filter(x => x)
 
 	const routeNames = {
-		home: 'Главная',
-		about: 'О нас',
+		home: <FaHome />, // Use FaHome component directly
+		about: 'Epillazer - студия лазерной эпиляции',
 		services: 'Услуги',
 		price: 'Цены',
 		contacts: 'Контакты',
-		news: 'Новости',
+		news: 'Новости и публикации',
 		sitemap: 'Карта сайта',
 		'privacy-policy': 'Политика конфиденциальности',
 	}
@@ -23,36 +25,105 @@ const Breadcrumbs = () => {
 		return null
 	}
 
-	let pageTitle = 'Ошибка 404' // Заголовок страницы по умолчанию
+	const [news, setNews] = useState(null)
+	const [isNewsFound, setIsNewsFound] = useState(true)
+	const [newsTitle, setNewsTitle] = useState('')
+
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const response = await fetch(
+					`http://localhost:3030/api/news/${pathnames[1]}`
+				)
+				if (!response.ok) {
+					if (response.status === 404) {
+						setIsNewsFound(false)
+					} else {
+						throw new Error(`Ошибка при запросе: ${response.statusText}`)
+					}
+				}
+
+				const contentType = response.headers.get('content-type')
+				if (contentType && contentType.includes('application/json')) {
+					const data = await response.json()
+					setNews(data)
+					setIsNewsFound(true)
+					setNewsTitle(data ? data.title : 'Новость не найдена')
+				} else {
+					setIsNewsFound(false)
+				}
+			} catch (error) {
+				console.error('Ошибка при загрузке данных новости:', error)
+				setNews({})
+				setIsNewsFound(false)
+			}
+		}
+
+		if (pathnames.length === 2 && pathnames[0] === 'news') {
+			fetchData()
+		}
+	}, [pathnames])
+
+	let pageTitle = 'Ошибка 404'
+	let breadcrumbsText = [{ name: <FaHome />, isLink: true }]
 
 	if (pathnames.length === 2 && pathnames[0] === 'news') {
-		// Если вы на странице новости, используйте заголовок новости
-		// Ваша логика получения заголовка новости может быть здесь
-		pageTitle = 'Заголовок новости' // Замените этот заголовок на вашу логику
+		pageTitle = isNewsFound ? newsTitle : 'Новость не найдена'
+		breadcrumbsText.push({
+			name: 'Новости и публикации',
+			isLink: true,
+			to: '/news',
+		})
 	} else {
-		// В противном случае используйте заголовок из routeNames
 		pageTitle = routeNames[pathnames[pathnames.length - 1]] || 'Ошибка 404'
+		breadcrumbsText = breadcrumbsText.concat(
+			pathnames.map(name => ({ name: routeNames[name] || name, isLink: false }))
+		)
 	}
 
 	return (
 		<div className={classes.Breadcrumbs}>
-			<h1>{pageTitle}</h1>
-			<div className={classes.BreadcrumbsText}>
-				<span>Вы здесь: </span>
-				{['home'].concat(pathnames).map((name, index, array) => {
-					const routeTo = `/${array.slice(1, index + 1).join('/')}`
-					const isLast = index === array.length - 1
+			<div className={classes.BreadcrumbsBox}>
+				<Container>
+					<div className={classes.BreadcrumbsInner}>
+						<h1>{pageTitle}</h1>
+						<div className={classes.BreadcrumbsText}>
+							{breadcrumbsText.map((item, index, array) => {
+								const routeTo =
+									item.to ||
+									`/${array
+										.slice(1, index + 1)
+										.map(item => item.name)
+										.join('/')}`
+								const isLast = index === array.length - 1
 
-					const translatedName = routeNames[name] || pageTitle
-
-					return isLast ? (
-						<span key={index}>{translatedName}</span>
-					) : (
-						<Link to={routeTo} key={index}>
-							{`${translatedName} > `}
-						</Link>
-					)
-				})}
+								return isLast ? (
+									item.isLink ? (
+										<Link to={routeTo} key={index}>
+											{item.name}
+										</Link>
+									) : (
+										<span key={index}>{item.name}</span>
+									)
+								) : (
+									[
+										item.isLink ? (
+											<Link to={routeTo} key={index}>
+												{item.name}
+											</Link>
+										) : (
+											<span key={index}>{item.name}</span>
+										),
+										<span className={classes.Span} key={`pipe-${index}`}>
+											{' '}
+											|{' '}
+										</span>,
+									]
+								)
+							})}
+						</div>
+					</div>
+				</Container>
 			</div>
 		</div>
 	)
