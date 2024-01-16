@@ -6,7 +6,7 @@
 			@apply font-bold font-Inter text-xl hover:text-darkGreen transition-all hover:underline;
 		}
 		& .ArticleDate {
-			@apply font-Inter text-base flex items-center gap-4;
+			@apply font-Inter text-base flex items-center gap-2;
 		}
 	}
 	.ArticleMain {
@@ -15,10 +15,10 @@
 			@apply max-w-[300px];
 		}
 		& .ArticleMainInner {
-			@apply flex flex-col justify-between
+			@apply flex flex-col justify-between;
 		}
 		& .ArticleButton button {
-			@apply flex items-center gap-2
+			@apply flex items-center gap-2;
 		}
 	}
 }

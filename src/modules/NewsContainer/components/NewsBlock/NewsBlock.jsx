@@ -5,7 +5,7 @@ import style from './NewsBlock.module.scss'
 
 import { faArrowRight, faCalendarDay } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import Button from '../../../../ui/Button/Button'
 
@@ -15,16 +15,22 @@ export default function NewsBlock({
 	link,
 	article_text,
 }) {
+	const navigate = useNavigate()
 	const handleClick = () => {
 		window.scrollTo(0, 0)
 	}
+	const handleClickMore = () => {
+		window.scrollTo(0, 0)
+		navigate('/news/' + link)
+	}
+
 	return (
 		<article className={style.Article}>
 			<figure>
 				<div className={style.ArticleHeader}>
 					<Link
 						className={style.ArticleTitle}
-						to={`/news/` + link}
+						to={'/news/' + link}
 						title={title}
 						onClick={handleClick}
 					>
@@ -40,7 +46,7 @@ export default function NewsBlock({
 					<div className={style.ArticleMainInner}>
 						<p>{article_text}</p>
 						<div className={style.ArticleButton}>
-							<Button>
+							<Button onClick={handleClickMore}>
 								Читать далее
 								<FontAwesomeIcon icon={faArrowRight} />
 							</Button>

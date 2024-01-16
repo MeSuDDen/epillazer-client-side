@@ -62,7 +62,9 @@ export default function Slider() {
 							</SwiperSlide>
 					  ))
 					: data.map(element => {
-							const formattedDate = DateValidator(element.date_published)
+							const formattedDate = DateValidator.DateValidator(
+								element.date_published
+							)
 
 							return (
 								<SwiperSlide key={element.id}>
