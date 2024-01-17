@@ -1,0 +1,20 @@
+.ConnectWithUs {
+	@apply fixed right-5 bottom-5 w-auto h-10 flex justify-center items-center z-50 gap-1;
+
+	& button {
+		@apply font-Inter font-normal;
+	}
+}
+.modalConnectWithUs {
+	border: 1px solid black;
+	@apply fixed right-5 bottom-20 bg-white w-[250px] rounded-sm z-50;
+}
+.modalConnectWithUsInner {
+	@apply flex flex-col justify-center;
+	& span {
+		@apply text-center font-Inter text-sm py-2 bg-darkGreen text-white;
+	}
+}
+.modalConnectWithUsBox {
+	@apply flex flex-row items-center h-12 gap-3 px-5 text-sm font-Inter text-darkGreen hover:bg-mainLight hover:text-darkGreen transition-all;
+}

@@ -28,6 +28,7 @@ import LatestNews from './modules/News/index'
 import NewsPage from './pages/NewsPage'
 import Sitemap from './pages/Sitemap'
 
+import ConnectWithUs from './components/ConnectWithUs/ConnectWithUs'
 import ModelOnline from './modules/ModelOnline'
 import Login from './pages/Login'
 import PrivacyPolicy from './pages/PrivacyPolicy'
@@ -49,7 +50,6 @@ function App() {
 export default App
 
 function MainComponent() {
-	const [data, setData] = useState([])
 	const [isModelOpen, setModelOpen] = useState(false)
 
 	const openModel = () => {
@@ -69,7 +69,7 @@ function MainComponent() {
 			{shouldRenderHeader(location) && (
 				<>
 					<Header />
-					<Breadcrumbs data={data} />
+					<Breadcrumbs />
 				</>
 			)}
 			<Routes>
@@ -92,6 +92,7 @@ function MainComponent() {
 			{shouldRenderHeader(location) && (
 				<>
 					<Footer />
+					<ConnectWithUs />
 					{/* <YandexShare /> */}
 				</>
 			)}

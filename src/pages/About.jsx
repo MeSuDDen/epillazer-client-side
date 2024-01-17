@@ -1,8 +1,9 @@
 import React from 'react'
 
 import { Helmet, HelmetProvider } from 'react-helmet-async'
-// FIXME: 
+// FIXME:
 export default function About() {
+	let content = '<a href="/news">Привет</a>'
 	return (
 		<HelmetProvider>
 			<Helmet>
@@ -10,8 +11,10 @@ export default function About() {
 				<meta name='description' content='About' />
 				<link rel='canonical' href='https://www.example.com/my-page' />
 			</Helmet>
-
-			<div>About</div>
+			<div>
+				About
+				<div dangerouslySetInnerHTML={{ __html: content }} />
+			</div>
 		</HelmetProvider>
 	)
 }

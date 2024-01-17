@@ -1,0 +1,9 @@
+.main {
+	@apply mt-10;
+	& h2 {
+		@apply font-Inter text-xl font-bold mb-2;
+	}
+	& p {
+		@apply mb-4 font-Inter;
+	}
+}

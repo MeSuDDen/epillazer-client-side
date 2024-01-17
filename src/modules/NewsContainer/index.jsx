@@ -21,7 +21,16 @@ export default function NewsContainer() {
 				if (newData.length === 0) {
 					setHasMore(false)
 				} else {
-					setData(prevData => [...prevData, ...newData])
+					setData(prevData => {
+						// Используем Set для уникальных значений и избежания дублирования
+						const newDataIds = new Set(newData.map(item => item.id))
+						const updatedData = [
+							...prevData.filter(item => !newDataIds.has(item.id)),
+							...newData,
+						]
+
+						return updatedData
+					})
 				}
 			} catch (error) {
 				console.error('Ошибка при загрузке данных:', error)

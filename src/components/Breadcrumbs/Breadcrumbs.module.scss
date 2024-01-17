@@ -1,20 +1,11 @@
-@import '../../assets/css/variables.module.scss';
-
 .Breadcrumbs {
-	background: $mainColor;
-
-	padding-top: 140px;
-
-	// display: flex;
-	// justify-content: center;
-	// align-items: center;
-	text-align: center;
+	@apply bg-white pt-[120px] text-center;
 
 	& p {
-		margin-bottom: 10px;
+		@apply mb-[10px];
 	}
 	& h1 {
-		@apply text-white text-lg font-bold font-Inter;
+		@apply text-white text-xl font-bold font-Inter;
 	}
 }
 .BreadcrumbsInner {
