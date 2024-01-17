@@ -32,7 +32,9 @@ const Breadcrumbs = () => {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const response = await fetch(`/api/news/${pathnames[1]}`)
+				const response = await fetch(
+					`/api/news/${pathnames[1]}`
+				)
 				if (!response.ok) {
 					if (response.status === 404) {
 						setIsNewsFound(false)
