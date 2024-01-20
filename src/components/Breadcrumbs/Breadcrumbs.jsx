@@ -33,7 +33,7 @@ const Breadcrumbs = () => {
 		const fetchData = async () => {
 			try {
 				const response = await fetch(
-					`http://localhost:3030/api/news/${pathnames[1]}`
+					`/api/news/${pathnames[1]}`
 				)
 				if (!response.ok) {
 					const responseData = await response.json()
