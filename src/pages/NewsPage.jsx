@@ -8,7 +8,7 @@ const NewsPage = () => {
 	const [news, setNews] = useState(null)
 
 	useEffect(() => {
-		fetch(`/api/news/${slug}`)
+		fetch(`http://localhost:3030/api/news/${slug}`)
 			.then(response => {
 				if (!response.ok) {
 					throw new Error(`Ошибка при запросе: ${response.status}`)

@@ -1,0 +1,13 @@
+/* Пример медиа-запроса для адаптивного изменения ширины элемента */
+@media screen and (min-width: 600px) {
+	.adaptive_width {
+		width: 80%;
+	}
+}
+
+/* Пример медиа-запроса для адаптивного изменения высоты элемента */
+@media screen and (min-width: 600px) {
+	.adaptive_height {
+		height: 100px;
+	}
+}

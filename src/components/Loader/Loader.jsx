@@ -1,36 +1,37 @@
-import React, { useState, useEffect } from 'react';
-
+import React, { useEffect, useState } from 'react'
+import { ColorRing } from 'react-loader-spinner'
 import classes from './Loader.module.scss'
 
-import { BallTriangle } from 'react-loader-spinner';
-
 export default function Loader() {
-  const [pageLoaded, setPageLoaded] = useState(false);
+	const [pageLoaded, setPageLoaded] = useState(false)
 
-  useEffect(() => {
-    const handleLoad = () => {
-      setPageLoaded(true);
-    };
+	useEffect(() => {
+		const handleLoad = () => {
+			setPageLoaded(true)
+		}
 
-    // Добавляем обработчик событий для события 'load'
-    window.addEventListener('load', handleLoad);
+		if (document.readyState === 'complete') {
+			handleLoad()
+		} else {
+			window.addEventListener('load', handleLoad)
+		}
 
-    // Очищаем обработчик событий при размонтировании компонента
-    return () => {
-      window.removeEventListener('load', handleLoad);
-    };
-  }, []);
+		return () => {
+			window.removeEventListener('load', handleLoad)
+		}
+	}, [])
 
-  return (
-    // Условно рендерим загрузчик на основе состояния pageLoaded
-    !pageLoaded ? (
-      <div className={classes.Loader}>
-        <BallTriangle
-          color="#4fa94d"
-          height={80}
-          width={80}
-        />
-      </div>
-    ) : null
-  );
+	return (
+		!pageLoaded && (
+			<div className={`${classes.Loader} ${pageLoaded ? classes.loaded : ''}`}>
+				<div className={classes.spinner}>
+					<ColorRing
+						colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
+						height={80}
+						width={80}
+					/>
+				</div>
+			</div>
+		)
+	)
 }

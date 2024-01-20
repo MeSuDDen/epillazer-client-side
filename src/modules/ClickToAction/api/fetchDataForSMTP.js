@@ -1,6 +1,6 @@
 export const fetchDataForSMTP = async (name, phone, toast) => {
 	try {
-		const response = await fetch('/api/send-email', {
+		const response = await fetch('http://localhost:3030/api/send-email', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',

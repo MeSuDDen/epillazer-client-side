@@ -11,13 +11,13 @@ const MyLoader = props => (
 		foregroundColor='#ecebeb'
 		{...props}
 	>
-		<rect x='19' y='4' rx='0' ry='0' width='365' height='243' />
-		<rect x='19' y='259' rx='0' ry='0' width='365' height='20' />
-		<rect x='19' y='284' rx='0' ry='0' width='365' height='20' />
-		<rect x='19' y='320' rx='0' ry='0' width='365' height='15' />
-		<rect x='19' y='340' rx='0' ry='0' width='365' height='15' />
-		<rect x='19' y='360' rx='0' ry='0' width='365' height='15' />
-		<rect x='19' y='381' rx='0' ry='0' width='365' height='15' />
+		<rect x='19' y='4' rx='0' ry='0' width='335' height='243' />
+		<rect x='19' y='259' rx='0' ry='0' width='335' height='20' />
+		<rect x='19' y='284' rx='0' ry='0' width='335' height='20' />
+		<rect x='19' y='320' rx='0' ry='0' width='335' height='15' />
+		<rect x='19' y='340' rx='0' ry='0' width='335' height='15' />
+		<rect x='19' y='360' rx='0' ry='0' width='335' height='15' />
+		<rect x='19' y='381' rx='0' ry='0' width='335' height='15' />
 		<rect x='19' y='461' rx='0' ry='0' width='164' height='15' />
 	</ContentLoader>
 )

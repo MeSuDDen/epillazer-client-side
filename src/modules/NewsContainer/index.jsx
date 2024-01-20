@@ -4,6 +4,7 @@ import Button from '../../ui/Button/Button'
 import DateValidator from '../News/helpers/DateValidator'
 import { fetchDataAllNews } from './api/fetchDataAllNews'
 import NewsBlock from './components/NewsBlock/NewsBlock'
+import Loader from './components/Loader/Loader'
 
 export default function NewsContainer() {
 	const [data, setData] = useState([])
@@ -49,28 +50,34 @@ export default function NewsContainer() {
 
 	return (
 		<Container>
-			{data.map((item, index) => {
-				const formattedDate = DateValidator.DateValidatorForNews(
-					item.date_published
-				)
-				return (
-					<NewsBlock
-						key={index}
-						title={item.title}
-						date_published={formattedDate}
-						article_text={item.article_text}
-						link={item.link}
-					/>
-				)
-			})}
+      {data.map((item, index) => {
+        const formattedDate = DateValidator.DateValidatorForNews(
+          item.date_published
+        );
+        return (
+          <NewsBlock
+            key={index}
+            title={item.title}
+            date_published={formattedDate}
+            article_text={item.article_text}
+            link={item.link}
+          />
+        );
+      })}
 
-			{isLoading && <p>Loading...</p>}
+      {(isLoading || data.length === 0) && (
+        <>
+          <Loader />
+          <Loader />
+          <Loader />
+        </>
+      )}
 
-			{!isLoading && hasMore && (
-				<Button onClick={loadMoreItems} disabled={isLoading}>
-					Показать еще
-				</Button>
-			)}
-		</Container>
+      {!isLoading && hasMore && data.length > 0 && (
+        <Button onClick={loadMoreItems} disabled={isLoading}>
+          Показать еще
+        </Button>
+      )}
+    </Container>
 	)
 }

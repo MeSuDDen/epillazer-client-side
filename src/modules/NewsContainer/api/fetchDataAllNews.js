@@ -1,7 +1,7 @@
 export const fetchDataAllNews = async (offset, limit, sortBy) => {
 	try {
 		const response = await fetch(
-			`/api/all-news?offset=${offset}&limit=${limit}&sortBy=${sortBy}`,
+			`http://localhost:3030/api/all-news?offset=${offset}&limit=${limit}&sortBy=${sortBy}`,
 			{
 				method: 'GET',
 			}

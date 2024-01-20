@@ -33,10 +33,11 @@ const Breadcrumbs = () => {
 		const fetchData = async () => {
 			try {
 				const response = await fetch(
-					`/api/news/${pathnames[1]}`
+					`http://localhost:3030/api/news/${pathnames[1]}`
 				)
 				if (!response.ok) {
-					if (response.status === 404) {
+					const responseData = await response.json()
+					if (responseData.error === 'Not Found') {
 						setIsNewsFound(false)
 					} else {
 						throw new Error(`Ошибка при запросе: ${response.statusText}`)
@@ -62,10 +63,11 @@ const Breadcrumbs = () => {
 		if (pathnames.length === 2 && pathnames[0] === 'news') {
 			fetchData()
 		}
-	}, [pathnames])
+	}, [pathnames[1]])
 
 	let pageTitle = 'Ошибка 404'
 	let breadcrumbsText = [{ name: <FaHome />, isLink: true }]
+	let isRouteExists = true
 
 	if (pathnames.length === 2 && pathnames[0] === 'news') {
 		pageTitle = isNewsFound ? newsTitle : 'Новость не найдена'
@@ -75,10 +77,21 @@ const Breadcrumbs = () => {
 			to: '/news',
 		})
 	} else {
-		pageTitle = routeNames[pathnames[pathnames.length - 1]] || 'Ошибка 404'
-		breadcrumbsText = breadcrumbsText.concat(
-			pathnames.map(name => ({ name: routeNames[name] || name, isLink: false }))
-		)
+		if (pathnames.length > 0) {
+			breadcrumbsText = breadcrumbsText.concat(
+				pathnames.map(name => ({
+					name: routeNames[name] || name,
+					isLink: false,
+				}))
+			)
+		}
+
+		const lastPathname = pathnames[pathnames.length - 1]
+		isRouteExists = routeNames[lastPathname] || lastPathname === 'news'
+
+		pageTitle = isRouteExists
+			? routeNames[lastPathname] || lastPathname
+			: 'Страница не найдена'
 	}
 
 	return (
@@ -88,39 +101,48 @@ const Breadcrumbs = () => {
 					<div className={classes.BreadcrumbsInner}>
 						<h1>{pageTitle}</h1>
 						<div className={classes.BreadcrumbsText}>
-							{breadcrumbsText.map((item, index, array) => {
-								const routeTo =
-									item.to ||
-									`/${array
-										.slice(1, index + 1)
-										.map(item => item.name)
-										.join('/')}`
-								const isLast = index === array.length - 1
+							{!isRouteExists ? (
+								<>
+									<Link to='/'>	
+										<FaHome />
+									</Link>
+									<span>&nbsp;| Страница не найдена</span>
+								</>
+							) : (
+								breadcrumbsText.map((item, index, array) => {
+									const routeTo =
+										item.to ||
+										`/${array
+											.slice(1, index + 1)
+											.map(item => item.name)
+											.join('/')}`
+									const isLast = index === array.length - 1
 
-								return isLast ? (
-									item.isLink ? (
-										<Link to={routeTo} key={index}>
-											{item.name}
-										</Link>
-									) : (
-										<span key={index}>{item.name}</span>
-									)
-								) : (
-									[
+									return isLast ? (
 										item.isLink ? (
 											<Link to={routeTo} key={index}>
 												{item.name}
 											</Link>
 										) : (
 											<span key={index}>{item.name}</span>
-										),
-										<span className={classes.Span} key={`pipe-${index}`}>
-											{' '}
-											|{' '}
-										</span>,
-									]
-								)
-							})}
+										)
+									) : (
+										[
+											item.isLink ? (
+												<Link to={routeTo} key={index}>
+													{item.name}
+												</Link>
+											) : (
+												<span key={index}>{item.name}</span>
+											),
+											<span className={classes.Span} key={`pipe-${index}`}>
+												{' '}
+												|{' '}
+											</span>,
+										]
+									)
+								})
+							)}
 						</div>
 					</div>
 				</Container>

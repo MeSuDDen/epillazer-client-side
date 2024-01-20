@@ -1,7 +1,7 @@
 export const fetchDataLatestNews = async (setData, setIsLoading) => {
 	try {
 		const response = await fetch(
-			'/api/latest-news?limit=10&sort=-date_published',
+			'http://localhost:3030/api/latest-news?limit=10&sort=-date_published',
 			{
 				method: 'GET',
 			}
