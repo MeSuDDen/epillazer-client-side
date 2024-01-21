@@ -1,0 +1,12 @@
+.Contacts {
+	@apply pt-10
+}
+.ContactsInner {
+	@apply flex justify-between gap-10 pb-10;
+	& .ContactsInfo {
+		@apply w-2/4;
+	}
+	& .ContactsForm {
+		@apply w-2/4;
+	}
+}

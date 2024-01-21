@@ -32,6 +32,7 @@ import ConnectWithUs from './components/ConnectWithUs/ConnectWithUs'
 import ModelOnline from './modules/ModelOnline'
 import Login from './pages/Login'
 import PrivacyPolicy from './pages/PrivacyPolicy'
+import BurgerMenu from './components/BurgerMenu/BurgerMenu'
 
 function App() {
 	return (
@@ -69,6 +70,7 @@ function MainComponent() {
 			{shouldRenderHeader(location) && (
 				<>
 					<Header />
+					<BurgerMenu/>
 					<Breadcrumbs />
 				</>
 			)}

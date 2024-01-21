@@ -7,6 +7,10 @@
   z-index: 999;
 }
 
+.no-scroll {
+  overflow: hidden;
+}
+
 a.active::after {
   content: "";
   position: absolute;
@@ -244,4 +248,25 @@ a.discrete:hover {
   height: 40px;
   width: auto;
   margin: 20px;
+}
+
+
+/* HEADER */
+.mobileMenu {
+  display: block;
+}
+
+.desktopMenu {
+  display: none;
+}
+
+/* HEADER ADAPTIVE*/
+@media screen and (min-width: 768px) {
+  .mobileMenu {
+    display: none;
+  }
+
+  .desktopMenu {
+    display: block;
+  }
 }

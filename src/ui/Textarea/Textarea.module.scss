@@ -1,0 +1,3 @@
+textarea {
+	@apply focus:text-darkGreen focus:border-2 focus:border-darkGreen placeholder:text-gray-500 p-4 min-w-[275px] outline-none bg-transparent font-bold text-gray-600 border-2 border-gray-500 py-7;
+}

@@ -1,0 +1,18 @@
+label.checkbox {
+  @apply flex w-full justify-start items-center gap-2;
+  & input {
+    @apply text-left w-5 h-5 min-w-0 ; // Увеличиваем размер чекбокса
+  }
+}
+
+label.checkbox input[type="checkbox"]:checked {
+  background-color: red;
+}
+
+
+.PrivacyPolicy {
+  @apply text-sm;
+  & .PrivacyPolicyBTN {
+    @apply hover:text-darkGreen transition-all hover:underline;
+  }
+}

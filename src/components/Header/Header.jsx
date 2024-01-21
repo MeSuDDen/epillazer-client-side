@@ -9,7 +9,7 @@ import classes from './Header.module.scss'
 
 export default function Header() {
 	return (
-		<header className={classes.HeaderContainer}>
+		<header className='desktopMenu'>
 			<Container>
 				<div className={classes.Header}>
 					<div className={classes.HeaderInner}>

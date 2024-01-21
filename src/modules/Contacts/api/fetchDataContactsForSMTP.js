@@ -1,11 +1,17 @@
-export const fetchDataForSMTP = async (name, phone, toast) => {
+export const fetchDataContactsForSMTP = async (
+	name,
+	phone,
+	email,
+	text,
+	toast
+) => {
 	try {
-		const response = await fetch('http://localhost:3030/api/send-email', {
+		const response = await fetch('http://localhost:3030/api/contacts/from', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
 			},
-			body: JSON.stringify({ name, phone }),
+			body: JSON.stringify({ name, phone, text, email }),
 		})
 
 		if (response.status === 400) {
@@ -16,6 +22,8 @@ export const fetchDataForSMTP = async (name, phone, toast) => {
 			throw new Error(
 				'Внутренняя ошибка сервера. Пожалуйста, повторите попытку позже.'
 			)
+		} else if (response.status === 404) {
+			throw new Error('Страница не существует')
 		}
 
 		toast(

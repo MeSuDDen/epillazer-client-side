@@ -1,0 +1,23 @@
+.ContactForm {
+	@apply w-full flex flex-col gap-2;
+	& label {
+		& input {
+			@apply w-full p-4 text-base;
+		}
+		& textarea {
+			@apply w-full p-4 text-base;
+		}
+	}
+
+	& button {
+		@apply w-full;
+	}
+	& .ErrorText {
+		@apply text-red-600;
+	}
+}
+.ContactsFormTitle {
+	@apply font-Inter text-lg text-center font-bold pb-5;
+}
+
+

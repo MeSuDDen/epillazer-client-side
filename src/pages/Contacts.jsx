@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { Helmet, HelmetProvider } from 'react-helmet-async'
+import ContactsBlock from '../modules/Contacts'
 
 export default function Contacts() {
 	return (
@@ -11,7 +12,7 @@ export default function Contacts() {
 				<link rel='canonical' href='https://www.example.com/my-page' />
 			</Helmet>
 
-			<div>Contacts</div>
+			<ContactsBlock/>
 		</HelmetProvider>
 	)
 }
