@@ -15,7 +15,7 @@ export default function Footer({ modal }) {
 			<Container>
 				<div className={style.FooterContainer}>
 					<Contacts />
-					<Map />
+					<Map height='400px'/>
 				</div>
 
 				<div className={style.FooterBot}>

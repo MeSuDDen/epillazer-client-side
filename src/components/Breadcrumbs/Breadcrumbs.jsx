@@ -33,7 +33,7 @@ const Breadcrumbs = () => {
 		const fetchData = async () => {
 			try {
 				const response = await fetch(
-					`/api/news/${pathnames[1]}`
+					`http://localhost:3030/api/news/${pathnames[1]}`
 				)
 				if (!response.ok) {
 					const responseData = await response.json()
@@ -103,7 +103,7 @@ const Breadcrumbs = () => {
 						<div className={classes.BreadcrumbsText}>
 							{!isRouteExists ? (
 								<>
-									<Link to='/'>	
+									<Link to='/'>
 										<FaHome />
 									</Link>
 									<span>&nbsp;| Страница не найдена</span>

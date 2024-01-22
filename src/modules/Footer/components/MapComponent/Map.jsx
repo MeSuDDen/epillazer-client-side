@@ -7,7 +7,7 @@ import {
 } from '@pbe/react-yandex-maps'
 import React from 'react'
 
-const YandexMap = () => {
+const YandexMap = ({ height }) => {
 	const mapState = {
 		center: [48.499092, 135.102558],
 		zoom: 17,
@@ -34,7 +34,7 @@ const YandexMap = () => {
 			<div
 				style={{
 					width: '100%',
-					height: '400px',
+					height: `${height}`,
 					borderRadius: '10px',
 					overflow: 'hidden',
 				}}

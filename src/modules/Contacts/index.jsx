@@ -1,8 +1,8 @@
 import React from 'react'
 import Container from '../../components/layout/Container/Container'
+import Map from '../Footer/components/MapComponent/Map'
 import ContactsFormForSMTP from './components/ContactsFormForSMTP/ContactsFormForSMTP'
 import ContactsInfo from './components/ContactsInfo/ContactsInfo'
-import Map from '../Footer/components/MapComponent/Map'
 import style from './style.module.scss'
 
 export default function ContactsBlock() {
@@ -17,7 +17,7 @@ export default function ContactsBlock() {
 						<ContactsFormForSMTP />
 					</div>
 				</div>
-				<Map/>
+				<Map height='300px' />
 			</Container>
 		</div>
 	)
