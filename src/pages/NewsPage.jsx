@@ -10,7 +10,7 @@ const NewsPage = () => {
 	const [isLoading, setIsLoading] = useState(true)
 
 	useEffect(() => {
-		fetch(`http://localhost:3030/api/news/${slug}`)
+		fetch(`/api/news/${slug}`)
 			.then(response => {
 				if (!response.ok) {
 					throw new Error(`Ошибка при запросе: ${response.status}`)

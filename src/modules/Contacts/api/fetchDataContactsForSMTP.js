@@ -6,7 +6,7 @@ export const fetchDataContactsForSMTP = async (
 	toast
 ) => {
 	try {
-		const response = await fetch('http://localhost:3030/api/contacts/from', {
+		const response = await fetch('/api/contacts/from', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',

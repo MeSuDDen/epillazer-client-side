@@ -12,6 +12,7 @@ import {
 	handleEmailChange,
 	handleNameChange,
 	handlePhoneChange,
+	handleTextChange,
 } from '../../helpers/handleChange'
 import { validateName, validatePhone } from '../../helpers/validateForm'
 import CheckBox from '../CheckBox/CheckBox'
@@ -106,9 +107,9 @@ export default function ContactsFormForSMTP() {
 					<label>
 						<Textarea
 							placeholder='Текст сообщения'
-							value={text}
 							type='text'
-							onChange={event => handleEmailChange(event, setText)}
+							onChange={event => handleTextChange(event, setText)}
+							value={text}
 						/>
 					</label>
 				</div>
