@@ -12,7 +12,7 @@ export default function About() {
 				<link rel='canonical' href='https://www.example.com/my-page' />
 			</Helmet>
 			<div>
-				About
+				About PAGE
 				<div dangerouslySetInnerHTML={{ __html: content }} />
 			</div>
 		</HelmetProvider>
